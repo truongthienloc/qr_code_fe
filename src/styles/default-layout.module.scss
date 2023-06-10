@@ -1,0 +1,9 @@
+@import './variable';
+
+.login-btn:hover {
+    color: $pr-color-dark;
+}
+
+.signup-btn:hover {
+    background: $pr-color-dark;
+}
