@@ -1,4 +1,4 @@
-# QR CODE
+# QR CODE GEN
 
 *Made by truongthienloc*
 
