@@ -8,7 +8,7 @@ interface IFormInfoProps {
 
 function FormInfo({ name, value, onChange }: IFormInfoProps) {
     return (
-        <form className="w-[40%] min-w-[300px] flex flex-col p-4 bg-white shadow gap-4">
+        <form className="w-full flex flex-col p-4 bg-white shadow gap-4">
             <label htmlFor="text">Nhập {name}:</label>
             <input
                 name="text"

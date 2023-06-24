@@ -1,0 +1,5 @@
+@import './variable';
+
+.shape-item--selected {
+    outline: solid 2px $pr-color;
+}
