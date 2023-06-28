@@ -16,7 +16,7 @@ function LinkPage() {
 
     return (
         <main className="flex min-h-screen w-full overflow-x-hidden flex-row justify-center font-sans-serif p-4 pt-4 gap-8">
-            <div className="w-[40%] min-w-[300px] flex flex-col ">
+            <div className="w-[40%] min-w-[300px] flex flex-col gap-4">
                 <FormInfo name="URL" value={info} onChange={handleInfoChange} />
                 <FormStyle qrCodeStyle={qrCodeStyle} />
             </div>

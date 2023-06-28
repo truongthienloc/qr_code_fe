@@ -10,6 +10,8 @@ export interface QRCodeStyle {
     setLogo: Dispatch<SetStateAction<string>>;
 }
 
+export const DEFAULT_LOGO = '/images/logo-qrcode.jpg';
+
 export interface QRCodeStyleValue {
     shape: QRCodeShape;
     color: Color;
