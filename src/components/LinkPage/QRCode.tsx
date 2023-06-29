@@ -1,6 +1,10 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import styleSCSS from '~/styles/linkpage.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useRef, MouseEvent } from 'react';
 import QRCodeStyling from 'qr-code-styling';
+import clsx from 'clsx';
 import { QRCodeStyleValue } from '~/hooks/QRCode/useQRCodeStyle';
 
 const qrCode = new QRCodeStyling({
@@ -40,13 +44,31 @@ function QRCode({ data, style = styleDefault }: IQRCodeProps) {
             },
             image: style.logo,
         });
-        qrCode.append(refQRCode.current as HTMLElement);
+
+        if (data !== '') qrCode.append(refQRCode.current as HTMLElement);
     }, [data, style]);
 
+    const handleClickDownload = (e: MouseEvent<HTMLButtonElement>) => {
+        qrCode.download({
+            name: 'qr-code-gen',
+        });
+    };
+
     return (
-        <div className="min-w-[300px] flex flex-col">
+        <div className="min-w-[300px] flex flex-col gap-4">
             <div ref={refQRCode} />
-            <button>Download</button>
+            {data && (
+                <button
+                    className={clsx(
+                        'shadow text-lg font-bold tracking-wider p-1 flex flex-row justify-center items-center gap-3 rounded',
+                        styleSCSS['download-btn'],
+                    )}
+                    onClick={handleClickDownload}
+                >
+                    <FontAwesomeIcon icon={faDownload} />
+                    DOWNLOAD
+                </button>
+            )}
         </div>
     );
 }
